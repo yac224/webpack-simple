@@ -3,19 +3,20 @@
     <h1>\{{ title }}</h1>
     <ul>
       <li v-for="link in links">
-        <a href="item.link" target="link.target">
+        <a :href="link.href" :target="link.target">
           \{{ link.text }}
         </a>
       </li>
     </ul>
   </div>
 </template>
-
 <script>
-import { mapState } from 'vuex'
+import {
+  mapState
+} from 'vuex'
 export default {
   name: 'link-list',
-  props:['linkType'],
+  props: ['linkType'],
   computed: {
     title() {
       return this.state[this.linkType].title
